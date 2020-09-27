@@ -1,0 +1,6 @@
+Django==2.2
+django-appconf==1.0.4
+django-compressor==2.4
+django-fontawesome-5==1.0.18
+django-libsass==0.8
+django-sass-processor==0.8.2

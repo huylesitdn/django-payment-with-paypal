@@ -1,262 +1,222 @@
-{% load sass_tags %} {% load static %} {% load fontawesome_5 %}
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Payment</title>
 
-    {% fontawesome_5_static %}
+{% block content %}
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
-
-    <link
-      href="{% static 'styles/checkout.css' %}"
-      rel="stylesheet"
-      type="text/css"
-    />
-  </head>
-  <body>
-    <div class="checkout-page">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8">
-            <div class="checkout-content">
-              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                <li class="nav-item tab1">
-                  <a
-                    class="nav-link active"
-                    id="pills-home-tab"
-                    data-toggle="pill"
-                    href="#pills-home"
-                    role="tab"
-                    aria-controls="pills-home"
-                    aria-selected="true"
-                    >Billed Monthly</a
-                  >
-                </li>
-                <li class="nav-item tab2">
-                  <a
-                    class="nav-link"
-                    id="pills-profile-tab"
-                    data-toggle="pill"
-                    href="#pills-profile"
-                    role="tab"
-                    aria-controls="pills-profile"
-                    aria-selected="false"
-                    >Billed Yearly</a
-                  >
-                </li>
-              </ul>
-              <div class="tab-content" id="pills-tabContent">
-                <div
-                  class="tab-pane fade show active"
-                  id="pills-home"
-                  role="tabpanel"
-                  aria-labelledby="pills-home-tab"
+<div class="checkout-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="checkout-content">
+          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item tab1">
+              <a
+                class="nav-link active"
+                id="pills-home-tab"
+                data-toggle="pill"
+                href="#pills-home"
+                role="tab"
+                aria-controls="pills-home"
+                aria-selected="true"
+                >Billed Monthly</a
+              >
+            </li>
+            <li class="nav-item tab2">
+              <a
+                class="nav-link"
+                id="pills-profile-tab"
+                data-toggle="pill"
+                href="#pills-profile"
+                role="tab"
+                aria-controls="pills-profile"
+                aria-selected="false"
+                >Billed Yearly</a
+              >
+            </li>
+          </ul>
+          <div class="tab-content" id="pills-tabContent">
+            <div
+              class="tab-pane fade show active"
+              id="pills-home"
+              role="tabpanel"
+              aria-labelledby="pills-home-tab"
+            >
+              <h1>
+                ${% if plan == 'pro' %}45.00{% else %}10.00{% endif %}<span
+                  >/mo</span
                 >
-                  <h1>
-                    ${% if plan == 'pro' %}45.00{% else %}10.00{% endif %}<span
-                      >/mo</span
-                    >
-                  </h1>
-                </div>
-                <div
-                  class="tab-pane fade"
-                  id="pills-profile"
-                  role="tabpanel"
-                  aria-labelledby="pills-profile-tab"
+              </h1>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="pills-profile"
+              role="tabpanel"
+              aria-labelledby="pills-profile-tab"
+            >
+              <h1>
+                ${% if plan == 'pro' %}399.00{% else %}99.00{% endif %}<span
+                  >/ye</span
                 >
-                  <h1>
-                    ${% if plan == 'pro' %}399.00{% else %}99.00{% endif %}<span
-                      >/ye</span
-                    >
-                  </h1>
-                </div>
-              </div>
-
-              <div id="paypal-button"></div>
+              </h1>
             </div>
           </div>
 
-          <div class="col-md-4">
-            <div class="card plan-detail">
-              <div class="card-body">
-                <h5
-                  class="title-{% if plan == 'pro' %}pro{% else %}basic{% endif %}"
-                >
-                  {% if plan == 'pro' %}Pro{% else %}Basic{% endif %}
-                </h5>
+          <div id="paypal-button"></div>
+        </div>
+      </div>
 
-                <ul>
-                  <li>
-                    <p class="unlimit">
-                      Unlimited Music Licensesu <i class="fas fa-check"></i>
-                    </p>
-                  </li>
-                  <li>
-                    <p class="unlimit">
-                      New Music Added Weekly <i class="fas fa-check"></i>
-                    </p>
-                  </li>
-                  <li>
-                    <p class="unlimit">
-                      Lifetime use for the songs you download
-                      <i class="fas fa-check"></i>
-                    </p>
-                  </li>
-                  <li>
-                    <p class="{% if plan == 'pro' %}un{% endif %}limit">
-                      Unlimited use in paid advertising
-                      <i
-                        class="fas {% if plan == 'pro' %}fa-check{% else %}fa-times{% endif %}"
-                      ></i>
-                    </p>
-                  </li>
-                  <li>
-                    <p class="{% if plan == 'pro' %}un{% endif %}limit">
-                      Sound Effects
-                      <i
-                        class="fas {% if plan == 'pro' %}fa-check{% else %}fa-times{% endif %}"
-                      ></i>
-                    </p>
-                  </li>
-                  <li>
-                    <p class="{% if plan == 'pro' %}un{% endif %}limit">
-                      Songs with stems
-                      <i
-                        class="fas {% if plan == 'pro' %}fa-check{% else %}fa-times{% endif %}"
-                      ></i>
-                    </p>
-                  </li>
-                </ul>
+      <div class="col-md-4">
+        <div class="card plan-detail">
+          <div class="card-body">
+            <h5
+              class="title-{% if plan == 'pro' %}pro{% else %}basic{% endif %}"
+            >
+              {% if plan == 'pro' %}Pro{% else %}Basic{% endif %}
+            </h5>
 
-                <div class="actions">
-                  <a
-                    href="/plans/{% if plan == 'pro' %}basic{% else %}pro{% endif %}"
-                    class="btn btn-primary btn-{% if plan == 'pro' %}pro{% else %}basic{% endif %}"
-                    >Switch to {% if plan == 'pro' %}Basic{% else %}Pro{% endif%}</a
-                  >
-                </div>
-              </div>
+            <ul>
+              <li>
+                <p class="unlimit">
+                  Unlimited Music Licensesu <i class="fas fa-check"></i>
+                </p>
+              </li>
+              <li>
+                <p class="unlimit">
+                  New Music Added Weekly <i class="fas fa-check"></i>
+                </p>
+              </li>
+              <li>
+                <p class="unlimit">
+                  Lifetime use for the songs you download
+                  <i class="fas fa-check"></i>
+                </p>
+              </li>
+              <li>
+                <p class="{% if plan == 'pro' %}un{% endif %}limit">
+                  Unlimited use in paid advertising
+                  <i
+                    class="fas {% if plan == 'pro' %}fa-check{% else %}fa-times{% endif %}"
+                  ></i>
+                </p>
+              </li>
+              <li>
+                <p class="{% if plan == 'pro' %}un{% endif %}limit">
+                  Sound Effects
+                  <i
+                    class="fas {% if plan == 'pro' %}fa-check{% else %}fa-times{% endif %}"
+                  ></i>
+                </p>
+              </li>
+              <li>
+                <p class="{% if plan == 'pro' %}un{% endif %}limit">
+                  Songs with stems
+                  <i
+                    class="fas {% if plan == 'pro' %}fa-check{% else %}fa-times{% endif %}"
+                  ></i>
+                </p>
+              </li>
+            </ul>
+
+            <div class="actions">
+              <a
+                href="/plans/{% if plan == 'pro' %}basic{% else %}pro{% endif %}"
+                class="btn btn-primary btn-{% if plan == 'pro' %}pro{% else %}basic{% endif %}"
+                >Switch to {% if plan == 'pro' %}Basic{% else %}Pro{% endif%}</a
+              >
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
-    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
-    <script>
-      var plan_current = "{{plan}}";
-      var typePlan = "monthly";
-      var totalPrice = "10.00";
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script>
+  var plan_current = "{{plan}}";
+  var typePlan = "monthly";
+  var totalPrice = "10.00";
 
-      if (plan_current == "pro") {
-        totalPrice = "45.00";
+  if (plan_current == "pro") {
+    totalPrice = "45.00";
+  }
+  $(document).ready(function () {
+    $("#pills-tab").on("click", "li", function () {
+      console.log(this);
+      var checkClass = $(this).hasClass("tab2");
+      console.log(checkClass);
+      if (checkClass) {
+        typePlan = "annual";
+        if (plan_current == "pro") {
+          totalPrice = "399.00";
+        } else {
+          totalPrice = "99.00";
+        }
+      } else {
+        typePlan = "monthly";
+        if (plan_current == "pro") {
+          totalPrice = "45.00";
+        } else {
+          totalPrice = "10.00";
+        }
       }
-      $(document).ready(function () {
-        $("#pills-tab").on("click", "li", function () {
-          console.log(this);
-          var checkClass = $(this).hasClass("tab2");
-          console.log(checkClass);
-          if (checkClass) {
-            typePlan = "annual";
-            if (plan_current == "pro") {
-              totalPrice = "399.00";
+    });
+  });
+
+  paypal.Button.render(
+    {
+      // Configure environment
+      env: "sandbox",
+      client: {
+        sandbox:
+          "AYafbXKO1imaNYvAfIw8QYIF8M9Zv_aecPtIFEvxDZwQW8DtT32w5lksKR8e3eegFGaaucFczF28pL3l",
+        production: "demo_production_client_id",
+      },
+      // Customize button (optional)
+      locale: "en_US",
+      style: {
+        size: "responsive",
+        color: "gold",
+        shape: "pill",
+        label: "paypal",
+      },
+
+      // Enable Pay Now checkout flow (optional)
+      commit: true,
+
+      // Set up a payment
+      payment: function (data, actions) {
+        return actions.payment.create({
+          transactions: [
+            {
+              amount: {
+                total: totalPrice,
+                currency: "USD",
+              },
+            },
+          ],
+        });
+      },
+      // Execute the payment
+      onAuthorize: function (data, actions) {
+        return actions.payment.execute().then(function (results) {
+          console.log("results: ", results);
+          // Show a confirmation message to the buyer
+          if (results && results.payer) {
+            if (results.payer.status == "VERIFIED") {
+              window.location.href = `/plans/${plan_current}/success`;
             } else {
-              totalPrice = "99.00";
+              window.location.href = `/plans/${plan_current}/error`;
             }
           } else {
-            typePlan = "monthly";
-            if (plan_current == "pro") {
-              totalPrice = "45.00";
-            } else {
-              totalPrice = "10.00";
-            }
+            window.location.href = `/plans/${plan_current}/error`;
           }
         });
-      });
-
-      paypal.Button.render(
-        {
-          // Configure environment
-          env: "sandbox",
-          client: {
-            sandbox:
-              "AYafbXKO1imaNYvAfIw8QYIF8M9Zv_aecPtIFEvxDZwQW8DtT32w5lksKR8e3eegFGaaucFczF28pL3l",
-            production: "demo_production_client_id",
-          },
-          // Customize button (optional)
-          locale: "en_US",
-          style: {
-            size: "responsive",
-            color: "gold",
-            shape: "pill",
-            label: "paypal",
-          },
-
-          // Enable Pay Now checkout flow (optional)
-          commit: true,
-
-          // Set up a payment
-          payment: function (data, actions) {
-            return actions.payment.create({
-              transactions: [
-                {
-                  amount: {
-                    total: totalPrice,
-                    currency: "USD",
-                  },
-                },
-              ],
-            });
-          },
-          // Execute the payment
-          onAuthorize: function (data, actions) {
-            return actions.payment.execute().then(function (results) {
-              console.log("results: ", results);
-              // Show a confirmation message to the buyer
-              if (results && results.payer) {
-                if (results.payer.status == "VERIFIED") {
-                  window.location.href = `/plans/${plan_current}/success`;
-                } else {
-                  window.location.href = `/plans/${plan_current}/error`;
-                }
-              } else {
-                window.location.href = `/plans/${plan_current}/error`;
-              }
-            });
-          },
-        },
-        "#paypal-button"
-      );
-    </script>
-  </body>
-</html>
+      },
+    },
+    "#paypal-button"
+  );
+</script>
+  
+{% endblock content %}
+  
