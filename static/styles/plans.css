@@ -1,0 +1,124 @@
+.plans-page {
+  text-align: center;
+  margin: 60px auto;
+}
+.plans-page h1 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 34px;
+  line-height: 36px;
+  text-align: center;
+  letter-spacing: 0.1px;
+  color: #171725;
+  margin-bottom: 28px;
+}
+.plans-page .des {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 22px;
+  /* or 183% */
+  text-align: center;
+  color: #44444F;
+  width: 60%;
+  margin: 0 auto;
+}
+.plans-page .plans {
+  margin-top: 40px;
+}
+.plans-page .plans .card .card-body {
+  padding: 30px;
+}
+.plans-page .plans .card .card-body h4 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin: 30px auto;
+}
+.plans-page .plans .card .card-body h3 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 45px;
+  text-align: center;
+  margin: 0;
+  color: #242424;
+}
+.plans-page .plans .card .card-body h3 span {
+  font-size: 30px;
+}
+.plans-page .plans .card .card-body h5 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 45px;
+  text-align: center;
+  opacity: 0.4;
+  color: #242424;
+}
+.plans-page .plans .card .card-body h5 span {
+  font-size: 14px;
+}
+.plans-page .plans .card .card-body .title-basic {
+  color: #4900FF;
+}
+.plans-page .plans .card .card-body .title-pro {
+  color: #FEA125;
+}
+.plans-page .plans .card .card-body ul {
+  border-top: 1px solid #ddd;
+  list-style: none;
+  text-align: left;
+  padding: 0;
+  margin-top: 30px;
+  padding-top: 30px;
+}
+.plans-page .plans .card .card-body ul li p {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 31px;
+  color: #242424;
+  width: 100%;
+}
+.plans-page .plans .card .card-body ul li p i {
+  width: 16px;
+  float: right;
+}
+.plans-page .plans .card .card-body ul li .limit {
+  opacity: 0.2;
+}
+.plans-page .plans .card .card-body .actions {
+  margin-top: 24px;
+}
+.plans-page .plans .card .card-body .actions .btn {
+  border-radius: 5px;
+  width: 100%;
+  border: none;
+  padding: 24px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.571429px;
+  color: #FFFFFF;
+}
+.plans-page .plans .card .card-body .actions .btn-basic {
+  background: #4900FF;
+}
+.plans-page .plans .card .card-body .actions .btn-pro {
+  background: linear-gradient(83.57deg, #FE8454 6.38%, #FEB508 100.16%);
+}
+
+/*# sourceMappingURL=plans.css.map */

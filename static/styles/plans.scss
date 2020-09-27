@@ -1,0 +1,147 @@
+.plans-page {
+  text-align: center;
+  margin: 60px auto;
+
+  h1 {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 34px;
+    line-height: 36px;
+    text-align: center;
+    letter-spacing: 0.1px;
+
+    color: #171725;
+    margin-bottom: 28px;
+  }
+
+  .des {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 22px;
+    /* or 183% */
+
+    text-align: center;
+
+    color: #44444F;
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  .plans {
+    margin-top: 40px;
+
+    .card {
+      .card-body {
+        padding: 30px;
+        h4 {
+          font-family: Poppins;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 21px;
+          text-align: center;
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
+          margin: 30px auto;
+        }
+
+        h3 {
+          font-family: Poppins;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 64px;
+          line-height: 45px;
+          text-align: center;
+          margin: 0;
+          color: #242424;
+
+          span {
+            font-size: 30px;
+          }
+        }
+
+        h5 {
+          font-family: Poppins;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 36px;
+          line-height: 45px;
+          text-align: center;
+          opacity: 0.4;
+          color: #242424;
+
+          span {
+            font-size: 14px;
+          }
+        }
+
+        .title-basic {
+          color: #4900FF;
+        }
+
+        .title-pro {
+          color: #FEA125;
+        }
+
+        ul {
+          border-top: 1px solid #ddd;
+          list-style: none;
+          text-align: left;
+          padding: 0;
+          margin-top: 30px;
+          padding-top: 30px;
+
+          li {
+            p {
+              font-family: Poppins;
+              font-style: normal;
+              font-weight: normal;
+              font-size: 16px;
+              line-height: 31px;
+              color: #242424;
+              width: 100%;
+
+              i {
+                width: 16px;
+                float: right;
+              }
+            }
+
+            .limit {
+              opacity: 0.2;
+            }
+          }
+
+        }
+
+        .actions {
+          margin-top: 24px;
+          .btn {
+            border-radius: 5px;
+            width: 100%;
+            border: none;
+            padding: 24px;
+            font-family: Poppins;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0.571429px;
+
+            color: #FFFFFF;
+          }
+
+          .btn-basic {
+            background: #4900FF;
+          }
+          .btn-pro{
+            background: linear-gradient(83.57deg, #FE8454 6.38%, #FEB508 100.16%);
+          }
+        }
+      }
+    }
+  }
+}

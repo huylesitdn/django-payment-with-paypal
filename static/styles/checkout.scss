@@ -1,0 +1,152 @@
+.checkout-page {
+  text-align: center;
+  margin: 60px auto;
+
+  .card {
+    background: #FDFEFF;
+    box-shadow: 1px 2px 120px rgba(204, 204, 204, 0.32);
+    border-radius: 23px;
+    padding: 30px;
+    border: none;
+    .card-body {
+      padding: 30px;
+
+      h5 {
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 28px;
+        line-height: 45px;
+        text-align: center;
+        color: #242424;
+
+        span {
+          font-size: 14px;
+        }
+      }
+
+      .title-basic {
+        color: #4900FF;
+      }
+
+      .title-pro {
+        color: #FEA125;
+      }
+
+      ul {
+        border-top: 1px solid #ddd;
+        list-style: none;
+        text-align: left;
+        padding: 0;
+        margin-top: 30px;
+        padding-top: 30px;
+
+        li {
+          p {
+            font-family: Poppins;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 31px;
+            color: #242424;
+            width: 100%;
+
+            i {
+              width: 16px;
+              float: right;
+            }
+          }
+
+          .limit {
+            opacity: 0.2;
+          }
+        }
+
+      }
+
+    }
+
+    .actions {
+      margin-top: 24px;
+
+      .btn {
+        border-radius: 5px;
+        width: 100%;
+        border: none;
+        padding: 15px;
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.571429px;
+
+        color: #FFFFFF;
+      }
+
+      .btn-basic {
+        background: #4900FF;
+      }
+
+      .btn-pro {
+        background: linear-gradient(83.57deg, #FE8454 6.38%, #FEB508 100.16%);
+      }
+    }
+  }
+
+  .checkout-content {
+    background: #FDFEFF;
+    box-shadow: 1px 2px 120px rgba(204, 204, 204, 0.32);
+    border-radius: 23px;
+    padding: 30px;
+    min-height: 632px;
+    margin-bottom: 24px;
+
+    #paypal-button{
+      margin-top: 60px;
+      margin-bottom: 30px;
+    }
+
+    ul {
+      li {
+        width: 50%;
+
+        a {
+          padding: 15px;
+          font-family: Poppins;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 27px;
+          /* identical to box height */
+
+          text-align: center;
+          color: #242424;
+        }
+
+        .active {
+          color: #FFFFFF;
+        }
+      }
+    }
+
+    .tab-content {
+      margin-top: 60px;
+
+      h1 {
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 64px;
+        line-height: 45px;
+        text-align: center;
+
+        color: #242424;
+
+        span {
+          font-size: 32px;
+        }
+      }
+    }
+  }
+}

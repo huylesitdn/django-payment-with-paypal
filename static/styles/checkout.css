@@ -1,0 +1,124 @@
+.checkout-page {
+  text-align: center;
+  margin: 60px auto;
+}
+.checkout-page .card {
+  background: #FDFEFF;
+  box-shadow: 1px 2px 120px rgba(204, 204, 204, 0.32);
+  border-radius: 23px;
+  padding: 30px;
+  border: none;
+}
+.checkout-page .card .card-body {
+  padding: 30px;
+}
+.checkout-page .card .card-body h5 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 45px;
+  text-align: center;
+  color: #242424;
+}
+.checkout-page .card .card-body h5 span {
+  font-size: 14px;
+}
+.checkout-page .card .card-body .title-basic {
+  color: #4900FF;
+}
+.checkout-page .card .card-body .title-pro {
+  color: #FEA125;
+}
+.checkout-page .card .card-body ul {
+  border-top: 1px solid #ddd;
+  list-style: none;
+  text-align: left;
+  padding: 0;
+  margin-top: 30px;
+  padding-top: 30px;
+}
+.checkout-page .card .card-body ul li p {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 31px;
+  color: #242424;
+  width: 100%;
+}
+.checkout-page .card .card-body ul li p i {
+  width: 16px;
+  float: right;
+}
+.checkout-page .card .card-body ul li .limit {
+  opacity: 0.2;
+}
+.checkout-page .card .actions {
+  margin-top: 24px;
+}
+.checkout-page .card .actions .btn {
+  border-radius: 5px;
+  width: 100%;
+  border: none;
+  padding: 15px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.571429px;
+  color: #FFFFFF;
+}
+.checkout-page .card .actions .btn-basic {
+  background: #4900FF;
+}
+.checkout-page .card .actions .btn-pro {
+  background: linear-gradient(83.57deg, #FE8454 6.38%, #FEB508 100.16%);
+}
+.checkout-page .checkout-content {
+  background: #FDFEFF;
+  box-shadow: 1px 2px 120px rgba(204, 204, 204, 0.32);
+  border-radius: 23px;
+  padding: 30px;
+  min-height: 632px;
+  margin-bottom: 24px;
+}
+.checkout-page .checkout-content #paypal-button {
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+.checkout-page .checkout-content ul li {
+  width: 50%;
+}
+.checkout-page .checkout-content ul li a {
+  padding: 15px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  /* identical to box height */
+  text-align: center;
+  color: #242424;
+}
+.checkout-page .checkout-content ul li .active {
+  color: #FFFFFF;
+}
+.checkout-page .checkout-content .tab-content {
+  margin-top: 60px;
+}
+.checkout-page .checkout-content .tab-content h1 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 45px;
+  text-align: center;
+  color: #242424;
+}
+.checkout-page .checkout-content .tab-content h1 span {
+  font-size: 32px;
+}
+
+/*# sourceMappingURL=checkout.css.map */
