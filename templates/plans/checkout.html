@@ -1,7 +1,4 @@
-{% extends 'base.html' %}
-
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <div class="checkout-page">
   <div class="container">
@@ -41,11 +38,7 @@
               role="tabpanel"
               aria-labelledby="pills-home-tab"
             >
-              <h1>
-                ${% if plan == 'pro' %}45.00{% else %}10.00{% endif %}<span
-                  >/mo</span
-                >
-              </h1>
+              <h1>${{ plan.price }}<span>/mo</span></h1>
             </div>
             <div
               class="tab-pane fade"
@@ -54,9 +47,8 @@
               aria-labelledby="pills-profile-tab"
             >
               <h1>
-                ${% if plan == 'pro' %}399.00{% else %}99.00{% endif %}<span
-                  >/ye</span
-                >
+                ${% if plan.limit == True %}{{ price_basic_ye }}{% else
+                %}{{price_pro_ye}}{% endif %}<span>/ye</span>
               </h1>
             </div>
           </div>
@@ -69,9 +61,9 @@
         <div class="card plan-detail">
           <div class="card-body">
             <h5
-              class="title-{% if plan == 'pro' %}pro{% else %}basic{% endif %}"
+              class="title-{% if plan.limit == False %}pro{% else %}basic{% endif %}"
             >
-              {% if plan == 'pro' %}Pro{% else %}Basic{% endif %}
+              {{ plan.name }}
             </h5>
 
             <ul>
@@ -92,26 +84,26 @@
                 </p>
               </li>
               <li>
-                <p class="{% if plan == 'pro' %}un{% endif %}limit">
+                <p class="{% if plan.limit == False %}un{% endif %}limit">
                   Unlimited use in paid advertising
                   <i
-                    class="fas {% if plan == 'pro' %}fa-check{% else %}fa-times{% endif %}"
+                    class="fas {% if plan.limit == False %} fa-check {% else %} fa-times {% endif %}"
                   ></i>
                 </p>
               </li>
               <li>
-                <p class="{% if plan == 'pro' %}un{% endif %}limit">
+                <p class="{% if plan.limit == False %}un{% endif %}limit">
                   Sound Effects
                   <i
-                    class="fas {% if plan == 'pro' %}fa-check{% else %}fa-times{% endif %}"
+                    class="fas {% if plan.limit == False %} fa-check {% else %} fa-times {% endif %}"
                   ></i>
                 </p>
               </li>
               <li>
-                <p class="{% if plan == 'pro' %}un{% endif %}limit">
+                <p class="{% if plan.limit == False %}un{% endif %}limit">
                   Songs with stems
                   <i
-                    class="fas {% if plan == 'pro' %}fa-check{% else %}fa-times{% endif %}"
+                    class="fas {% if plan.limit == False %} fa-check {% else %} fa-times {% endif %}"
                   ></i>
                 </p>
               </li>
@@ -119,9 +111,9 @@
 
             <div class="actions">
               <a
-                href="/plans/{% if plan == 'pro' %}basic{% else %}pro{% endif %}"
-                class="btn btn-primary btn-{% if plan == 'pro' %}pro{% else %}basic{% endif %}"
-                >Switch to {% if plan == 'pro' %}Basic{% else %}Pro{% endif%}</a
+                href="/plans/{{ switch_plan_id }}"
+                class="btn btn-primary btn-{% if plan.limit == False %}pro{% else %}basic{% endif %}"
+                >Switch to {{ switch_plan }}</a
               >
             </div>
           </div>
@@ -133,13 +125,13 @@
 
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 <script>
-  var plan_current = "{{plan}}";
+  var plan_current = "{{id}}";
   var typePlan = "monthly";
-  var totalPrice = "10.00";
+  var totalPrice = "{{ plan.price }}";
 
-  if (plan_current == "pro") {
-    totalPrice = "45.00";
-  }
+  // if (plan_current == "pro") {
+  //   totalPrice = "45.00";
+  // }
   $(document).ready(function () {
     $("#pills-tab").on("click", "li", function () {
       console.log(this);
@@ -147,18 +139,33 @@
       console.log(checkClass);
       if (checkClass) {
         typePlan = "annual";
-        if (plan_current == "pro") {
-          totalPrice = "399.00";
+
+        if ("{{ plan.limit }}" == "False") {
+          console.log("Ahihi");
+          totalPrice = "{{price_pro_ye}}";
         } else {
-          totalPrice = "99.00";
+          console.log("Ahuhu");
+          totalPrice = "{{price_basic_ye}}";
         }
+        // if (plan_current == "pro") {
+        //   totalPrice = "399.00";
+        // } else {
+        //   totalPrice = "99.00";
+        // }
       } else {
         typePlan = "monthly";
-        if (plan_current == "pro") {
-          totalPrice = "45.00";
-        } else {
-          totalPrice = "10.00";
-        }
+        // if (plan_current == "pro") {
+        //   totalPrice = "45.00";
+        // } else {
+        //   totalPrice = "10.00";
+        // }
+
+        totalPrice = "{{ plan.price }}";
+        // if('{{ plan.limit }}' == 'True'){
+        //   console.log('Ahihi')
+        // } else {
+        //   console.log("Ahuhu")
+        // }
       }
     });
   });
@@ -201,6 +208,8 @@
       onAuthorize: function (data, actions) {
         return actions.payment.execute().then(function (results) {
           console.log("results: ", results);
+          localStorage.setItem("data_paypal", JSON.stringify(results));
+
           // Show a confirmation message to the buyer
           if (results && results.payer) {
             if (results.payer.status == "VERIFIED") {
@@ -217,6 +226,5 @@
     "#paypal-button"
   );
 </script>
-  
+
 {% endblock content %}
-  

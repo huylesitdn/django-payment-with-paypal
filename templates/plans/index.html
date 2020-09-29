@@ -13,43 +13,52 @@
 
     <div class="plans">
       <div class="row">
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-body">
-              <h4 class="title-basic">Basic</h4>
-              <h3 class="price">$10.00 <span>/mo</span></h3>
-              <h5 class="price">($99.00 <span>/ye</span>)</h5>
 
-              <ul>
-                <li>
-                  <p class="unlimit">Unlimited Music Licensesu <i class="fas fa-check"></i></p>
-                </li>
-                <li>
-                  <p class="unlimit">New Music Added Weekly <i class="fas fa-check"></i></p>
-                </li>
-                <li>
-                  <p class="unlimit">
-                    Lifetime use for the songs you download <i class="fas fa-check"></i>
-                  </p>
-                </li>
-                <li>
-                  <p class="limit">Unlimited use in paid advertising <i class="fas fa-times"></i></p>
-                </li>
-                <li>
-                  <p class="limit">Sound Effects <i class="fas fa-times"></i></p>
-                </li>
-                <li>
-                  <p class="limit">Songs with stems <i class="fas fa-times"></i></p>
-                </li>
-              </ul>
-
-              <div class="actions">
-                <a href="/plans/basic" class="btn btn-primary btn-basic">Pay now</a>
+        {% for plan in plans %}
+          {% if plan.role == 'Monthly' %}
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="title-{% if plan.limit == True %}basic{% else %}pro{% endif %}">{{ plan.name }}</h4>
+                <h3 class="price">${{ plan.price }} <span>/mo</span></h3>
+                <h5 class="price">(${% if plan.limit == True %}{{price_basic_ye}}{% else %}{{ price_pro_ye }}{% endif %} <span>/ye</span>)</h5>
+  
+                <ul>
+                  <li>
+                    <p class="unlimit">Unlimited Music Licensesu <i class="fas fa-check"></i></p>
+                  </li>
+                  <li>
+                    <p class="unlimit">New Music Added Weekly <i class="fas fa-check"></i></p>
+                  </li>
+                  <li>
+                    <p class="unlimit">
+                      Lifetime use for the songs you download <i class="fas fa-check"></i>
+                    </p>
+                  </li>
+                  <li>
+                    <p class="{% if plan.limit == False %}un{% endif %}limit">Unlimited use in paid advertising <i class="fas {% if plan.limit == False %} fa-check {% else %} fa-times {% endif %} "></i></p>
+                  </li>
+                  <li>
+                    <p class="{% if plan.limit == False %}un{% endif %}limit">Sound Effects <i class="fas {% if plan.limit == False %} fa-check {% else %} fa-times {% endif %} "></i></p>
+                  </li>
+                  <li>
+                    <p class="{% if plan.limit == False %}un{% endif %}limit">Songs with stems <i class="fas {% if plan.limit == False %} fa-check {% else %} fa-times {% endif %} "></i></p>
+                  </li>
+                </ul>
+  
+                <div class="actions">
+                  <a href="/plans/{{ plan.id }}" class="btn btn-primary btn-{% if plan.limit == True %}basic{% else %}pro{% endif %}">Pay now</a>
+                  <!-- <a href="/plans/{% if plan.limit == True %}basic{% else %}pro{% endif %}" class="btn btn-primary btn-{% if plan.limit == True %}basic{% else %}pro{% endif %}">Pay now</a> -->
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-6">
+          
+          {% endif %}
+        {% endfor %}
+
+        
+        <!-- <div class="col-md-6">
           <div class="card">
             <div class="card-body">
               <h4 class="title-pro">Pro</h4>
@@ -84,7 +93,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         
       </div>
     </div>
